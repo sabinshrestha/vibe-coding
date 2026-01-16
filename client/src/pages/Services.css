@@ -1,0 +1,229 @@
+.services-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.services-header {
+  margin-bottom: 30px;
+}
+
+.services-header h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.services-content {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 20px;
+}
+
+.filters {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 5px;
+  height: fit-content;
+}
+
+.filters h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.filters label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.filters input[type='radio'] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.filters button {
+  width: 100%;
+  padding: 8px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.service-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-header {
+  margin-bottom: 10px;
+}
+
+.service-header h3 {
+  font-size: 16px;
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.category {
+  color: #667eea;
+  font-size: 12px;
+  margin: 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.service-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 15px 0;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.freelancer {
+  flex: 1;
+}
+
+.freelancer strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.rating {
+  font-size: 13px;
+  color: #666;
+}
+
+.price {
+  text-align: right;
+}
+
+.price strong {
+  font-size: 18px;
+  color: #667eea;
+  display: block;
+}
+
+.price p {
+  font-size: 12px;
+  color: #999;
+  margin: 5px 0 0 0;
+}
+
+.cta-btn {
+  width: 100%;
+  padding: 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta-btn:hover {
+  background: #764ba2;
+}
+
+/* Freelancer Dashboard */
+.freelancer-dashboard {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.create-service-btn {
+  padding: 12px 24px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.service-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+}
+
+.service-form h3 {
+  margin: 0;
+  color: #333;
+}
+
+.service-form input,
+.service-form select,
+.service-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.service-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.service-form button {
+  padding: 12px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.service-form button:hover {
+  background: #764ba2;
+}

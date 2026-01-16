@@ -1,0 +1,10 @@
+{
+  "name": "vibe-freelance-marketplace",
+  "version": "1.0.0",
+  "description": "A full-stack freelance services marketplace",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}
