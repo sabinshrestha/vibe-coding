@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../config/api";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
@@ -29,7 +30,7 @@ export const Register: React.FC = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, formData);
       setAuth(response.data.user, response.data.token);
       navigate(formData.role === 'freelancer' ? '/freelancer-dashboard' : '/dashboard');
     } catch (err: any) {
@@ -108,7 +109,7 @@ export const Login: React.FC = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, formData);
       setAuth(response.data.user, response.data.token);
       navigate('/dashboard');
     } catch (err: any) {

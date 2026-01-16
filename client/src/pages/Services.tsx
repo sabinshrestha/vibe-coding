@@ -1,3 +1,4 @@
+import { API_BASE_URL } from "../config/api";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuthStore } from '../store/authStore';
@@ -28,7 +29,7 @@ export const ServiceBrowse: React.FC = () => {
 
   const fetchServices = async () => {
     try {
-      let query = 'http://localhost:5000/api/services';
+      let query = `${API_BASE_URL}/api/services`;
       if (category) query += `?category=${category}`;
 
       const response = await axios.get(query, {
@@ -137,8 +138,7 @@ export const FreelancerDashboard: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.post(
-        'http://localhost:5000/api/services',
+      await axios.post(`${API_BASE_URL}/api/services`,
         {
           ...formData,
           price: parseFloat(formData.price),

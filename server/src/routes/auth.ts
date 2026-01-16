@@ -36,7 +36,8 @@ router.post('/register', async (req: Request, res: Response) => {
       token,
     });
   } catch (error) {
-    res.status(500).json({ error: 'Registration failed' });
+    console.error('Registration error:', error);
+    res.status(500).json({ error: 'Registration failed', details: error instanceof Error ? error.message : 'Unknown error' });
   }
 });
 
@@ -67,7 +68,8 @@ router.post('/login', async (req: Request, res: Response) => {
       token,
     });
   } catch (error) {
-    res.status(500).json({ error: 'Login failed' });
+    console.error('Login error:', error);
+    res.status(500).json({ error: 'Login failed', details: error instanceof Error ? error.message : 'Unknown error' });
   }
 });
 
