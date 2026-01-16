@@ -5,6 +5,60 @@ import { hashPassword, comparePassword } from '../utils/password';
 
 const router = Router();
 
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     summary: Register a new user
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *               - role
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: John Doe
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: john@example.com
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 example: password123
+ *               role:
+ *                 type: string
+ *                 enum: [freelancer, client]
+ *                 example: client
+ *     responses:
+ *       201:
+ *         description: User registered successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 user:
+ *                   $ref: '#/components/schemas/User'
+ *                 token:
+ *                   type: string
+ *       400:
+ *         description: Email already exists
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Registration failed
+ */
 // Register
 router.post('/register', async (req: Request, res: Response) => {
   try {
@@ -41,6 +95,51 @@ router.post('/register', async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Login a user
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *               - password
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 example: john@example.com
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 example: password123
+ *     responses:
+ *       200:
+ *         description: Login successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 user:
+ *                   $ref: '#/components/schemas/User'
+ *                 token:
+ *                   type: string
+ *       401:
+ *         description: Invalid credentials
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *       500:
+ *         description: Login failed
+ */
 // Login
 router.post('/login', async (req: Request, res: Response) => {
   try {

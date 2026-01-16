@@ -4,6 +4,51 @@ import { authMiddleware } from '../middleware/auth';
 
 const router = Router();
 
+/**
+ * @swagger
+ * /api/services:
+ *   post:
+ *     summary: Create a new service
+ *     tags: [Services]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - description
+ *               - category
+ *               - price
+ *               - deliveryTime
+ *             properties:
+ *               title:
+ *                 type: string
+ *               description:
+ *                 type: string
+ *               category:
+ *                 type: string
+ *               price:
+ *                 type: number
+ *               deliveryTime:
+ *                 type: number
+ *               revisions:
+ *                 type: number
+ *               tags:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *     responses:
+ *       201:
+ *         description: Service created successfully
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Failed to create service
+ */
 // Create service
 router.post('/', authMiddleware, async (req: Request, res: Response) => {
   try {
@@ -27,6 +72,60 @@ router.post('/', authMiddleware, async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * @swagger
+ * /api/services:
+ *   get:
+ *     summary: Get all services
+ *     tags: [Services]
+ *     parameters:
+ *       - in: query
+ *         name: category
+ *         schema:
+ *           type: string
+ *         description: Filter by category
+ *       - in: query
+ *         name: searchTerm
+ *         schema:
+ *           type: string
+ *         description: Search term
+ *     responses:
+ **
+ * @swagger
+ * /api/services/{id}:
+ *   get:
+ *     summary: Get service by ID
+ *     tags: [Services]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Service ID
+ *     responses:
+ *       200:
+ *         description: Service details
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Service'
+ *       404:
+ *         description: Service not found
+ *       500:
+ *         description: Failed to fetch service
+ */
+/*       200:
+ *         description: List of services
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Service'
+ *       500:
+ *         description: Failed to fetch services
+ */
 // Get all services
 router.get('/', async (req: Request, res: Response) => {
   try {
