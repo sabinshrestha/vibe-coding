@@ -1,6 +1,7 @@
 import { API_BASE_URL } from "../config/api";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/authStore';
 import './Services.css';
 
@@ -18,6 +19,7 @@ interface Service {
 
 export const ServiceBrowse: React.FC = () => {
   const token = useAuthStore((state) => state.token);
+  const navigate = useNavigate();
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -102,7 +104,12 @@ export const ServiceBrowse: React.FC = () => {
                     <p>{service.deliveryTime} days delivery</p>
                   </div>
                 </div>
-                <button className="cta-btn">View Details</button>
+                <button
+                  className="cta-btn"
+                  onClick={() => navigate(`/services/${service._id}`)}
+                >
+                  View Details
+                </button>
               </div>
             ))
           ) : (

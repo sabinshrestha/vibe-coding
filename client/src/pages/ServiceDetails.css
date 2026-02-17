@@ -1,0 +1,68 @@
+.service-details-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.service-details-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.service-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.service-details-header .category {
+  color: #6c7cff;
+  font-weight: 600;
+}
+
+.description {
+  margin: 16px 0 20px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.service-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.freelancer-info {
+  margin-bottom: 16px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: #eef1ff;
+  color: #4f5bd5;
+  padding: 6px 10px;
+  border-radius: 16px;
+  font-size: 12px;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #4f5bd5;
+  font-weight: 600;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.error {
+  color: #e74c3c;
+}

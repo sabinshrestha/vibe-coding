@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Register, Login } from './pages/Auth';
 import { ServiceBrowse, FreelancerDashboard } from './pages/Services';
+import { ServiceDetails } from './pages/ServiceDetails';
 import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
 import { useAuthStore } from './store/authStore';
@@ -77,6 +78,14 @@ export const App: React.FC = () => {
             element={
               <ProtectedRoute>
                 <ServiceBrowse />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/services/:id"
+            element={
+              <ProtectedRoute>
+                <ServiceDetails />
               </ProtectedRoute>
             }
           />
