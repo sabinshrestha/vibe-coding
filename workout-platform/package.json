@@ -1,0 +1,38 @@
+{
+  "name": "workout-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Production-grade Workout Management Platform",
+  "scripts": {
+    "dev": "pnpm run docker:up && concurrently \"pnpm --filter @workout/api dev\" \"pnpm --filter @workout/web dev\"",
+    "build": "pnpm --filter @workout/api build && pnpm --filter @workout/web build",
+    "start": "pnpm run docker:up && concurrently \"pnpm --filter @workout/api start:prod\" \"pnpm --filter @workout/web start\"",
+    "test": "pnpm --recursive run test",
+    "test:e2e": "pnpm --filter @workout/api test:e2e && pnpm --filter @workout/web test:e2e",
+    "lint": "pnpm --recursive run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "typecheck": "pnpm --recursive run typecheck",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:clean": "docker-compose down -v",
+    "db:migrate": "pnpm --filter @workout/api db:migrate",
+    "db:seed": "pnpm --filter @workout/api db:seed",
+    "db:studio": "pnpm --filter @workout/api db:studio",
+    "db:reset": "pnpm --filter @workout/api db:reset",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.1"
+}
