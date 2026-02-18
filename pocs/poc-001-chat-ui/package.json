@@ -1,0 +1,10 @@
+{
+  "name": "poc-001-chat-ui",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "test": "echo \"No tests yet\"",
+    "lint": "echo \"No lint config yet\"",
+    "dev": "echo \"Add dev command for this POC\""
+  }
+}

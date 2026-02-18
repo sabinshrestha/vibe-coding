@@ -6,5 +6,17 @@
   "workspaces": [
     "client",
     "server"
-  ]
+  ],
+  "scripts": {
+    "new:poc": "bash ./scripts/new-poc.sh",
+    "test:all": "bash ./scripts/test-all.sh",
+    "lint:all": "bash ./scripts/lint-all.sh",
+    "deepwiki:dev": "vitepress dev docs/deepwiki --host 0.0.0.0 --port 4173",
+    "deepwiki:build": "vitepress build docs/deepwiki",
+    "deepwiki:preview": "vitepress preview docs/deepwiki --host 0.0.0.0 --port 4173",
+    "deepwiki:with-poc": "bash ./scripts/dev-with-deepwiki.sh"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
 }
