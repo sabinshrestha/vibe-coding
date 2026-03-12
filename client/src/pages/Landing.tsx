@@ -164,6 +164,111 @@ export const Landing: React.FC = () => {
         </div>
       </section>
 
+      {/* Login Section */}
+      <section
+        style={{
+          padding: '80px 20px',
+          background: '#f0f0f5',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: '900px',
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '60px',
+            flexWrap: 'wrap' as const,
+            justifyContent: 'center',
+          }}
+        >
+          <div style={{ flex: '1', minWidth: '280px' }}>
+            <h2 style={{ fontSize: '32px', marginBottom: '16px', color: '#1a1a2e' }}>
+              Already a Member?
+            </h2>
+            <p style={{ fontSize: '16px', color: '#666', lineHeight: '1.6', marginBottom: '24px' }}>
+              Sign in to access your dashboard, manage orders, and continue growing your freelance business.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '12px' }}>
+              {['View your active orders', 'Track your earnings', 'Message your clients'].map(
+                (item) => (
+                  <div
+                    key={item}
+                    style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#444' }}
+                  >
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '24px',
+                        height: '24px',
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                        color: 'white',
+                        fontSize: '12px',
+                        flexShrink: 0,
+                      }}
+                    >
+                      &#10003;
+                    </span>
+                    <span>{item}</span>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+          <div
+            style={{
+              flex: '1',
+              minWidth: '280px',
+              background: 'white',
+              borderRadius: '12px',
+              padding: '40px',
+              boxShadow: '0 8px 30px rgba(0,0,0,0.08)',
+            }}
+          >
+            <h3
+              style={{
+                fontSize: '24px',
+                marginBottom: '24px',
+                textAlign: 'center',
+                color: '#1a1a2e',
+              }}
+            >
+              Sign In
+            </h3>
+            <button
+              onClick={() => navigate('/login')}
+              style={{
+                width: '100%',
+                padding: '14px',
+                fontSize: '16px',
+                fontWeight: 'bold',
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                transition: 'opacity 0.2s',
+                marginBottom: '16px',
+              }}
+            >
+              Go to Login
+            </button>
+            <p style={{ textAlign: 'center', color: '#888', fontSize: '14px' }}>
+              Don't have an account?{' '}
+              <span
+                onClick={() => navigate('/register')}
+                style={{ color: '#667eea', fontWeight: '600', cursor: 'pointer' }}
+              >
+                Register free
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section
         style={{
