@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Register } from './pages/Auth';
-import { LoginScreen } from './pages/LoginScreen';
+import { Login } from './pages/Login';
 import { ServiceBrowse, FreelancerDashboard } from './pages/Services';
 import { ServiceDetails } from './pages/ServiceDetails';
 import { Dashboard } from './pages/Dashboard';
@@ -65,7 +65,7 @@ export const App: React.FC = () => {
         <Routes>
           <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Landing />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<LoginScreen />} />
+          <Route path="/login" element={<Login />} />
           <Route
             path="/dashboard"
             element={
