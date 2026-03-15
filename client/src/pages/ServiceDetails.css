@@ -5,10 +5,11 @@
 }
 
 .service-details-card {
-  background: #ffffff;
+  background: var(--bg-secondary);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.3s;
 }
 
 .service-details-header {
@@ -19,13 +20,13 @@
 }
 
 .service-details-header .category {
-  color: #6c7cff;
+  color: var(--accent-text);
   font-weight: 600;
 }
 
 .description {
   margin: 16px 0 20px;
-  color: #555;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -47,8 +48,8 @@
 }
 
 .tag {
-  background: #eef1ff;
-  color: #4f5bd5;
+  background: var(--accent-light);
+  color: var(--accent-text);
   padding: 6px 10px;
   border-radius: 16px;
   font-size: 12px;
@@ -57,12 +58,12 @@
 .back-btn {
   background: transparent;
   border: none;
-  color: #4f5bd5;
+  color: var(--accent-text);
   font-weight: 600;
   margin-bottom: 16px;
   cursor: pointer;
 }
 
 .error {
-  color: #e74c3c;
+  color: var(--error-alt);
 }

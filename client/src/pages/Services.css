@@ -11,7 +11,7 @@
 .services-header h1 {
   font-size: 32px;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--text-heading);
 }
 
 .search-bar {
@@ -22,9 +22,16 @@
 .search-bar input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 14px;
+  background: var(--input-bg);
+  color: var(--input-text);
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
 }
 
 .services-content {
@@ -34,15 +41,16 @@
 }
 
 .filters {
-  background: #f8f9fa;
+  background: var(--bg-tertiary);
   padding: 20px;
   border-radius: 5px;
   height: fit-content;
+  transition: background-color 0.3s;
 }
 
 .filters h3 {
   margin-bottom: 15px;
-  color: #333;
+  color: var(--text-heading);
 }
 
 .filters label {
@@ -50,6 +58,7 @@
   align-items: center;
   margin-bottom: 10px;
   cursor: pointer;
+  color: var(--text-primary);
 }
 
 .filters input[type='radio'] {
@@ -60,7 +69,7 @@
 .filters button {
   width: 100%;
   padding: 8px;
-  background: #667eea;
+  background: var(--accent-primary);
   color: white;
   border: none;
   border-radius: 5px;
@@ -75,16 +84,16 @@
 }
 
 .service-card {
-  background: white;
-  border: 1px solid #ddd;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   padding: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-hover-shadow);
 }
 
 .service-header {
@@ -94,18 +103,18 @@
 .service-header h3 {
   font-size: 16px;
   margin: 0 0 5px 0;
-  color: #333;
+  color: var(--text-heading);
 }
 
 .category {
-  color: #667eea;
+  color: var(--accent-primary);
   font-size: 12px;
   margin: 0;
 }
 
 .description {
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
   margin: 10px 0;
 }
 
@@ -115,8 +124,8 @@
   align-items: flex-start;
   margin: 15px 0;
   padding: 10px 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .freelancer {
@@ -127,11 +136,12 @@
   display: block;
   font-size: 14px;
   margin-bottom: 5px;
+  color: var(--text-primary);
 }
 
 .rating {
   font-size: 13px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .price {
@@ -140,20 +150,20 @@
 
 .price strong {
   font-size: 18px;
-  color: #667eea;
+  color: var(--accent-primary);
   display: block;
 }
 
 .price p {
   font-size: 12px;
-  color: #999;
+  color: var(--text-tertiary);
   margin: 5px 0 0 0;
 }
 
 .cta-btn {
   width: 100%;
   padding: 10px;
-  background: #667eea;
+  background: var(--accent-primary);
   color: white;
   border: none;
   border-radius: 5px;
@@ -163,7 +173,7 @@
 }
 
 .cta-btn:hover {
-  background: #764ba2;
+  background: var(--accent-secondary);
 }
 
 /* Freelancer Dashboard */
@@ -175,7 +185,7 @@
 
 .create-service-btn {
   padding: 12px 24px;
-  background: #667eea;
+  background: var(--accent-primary);
   color: white;
   border: none;
   border-radius: 5px;
@@ -185,28 +195,31 @@
 }
 
 .service-form {
-  background: #f8f9fa;
+  background: var(--bg-tertiary);
   padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   max-width: 600px;
+  transition: background-color 0.3s;
 }
 
 .service-form h3 {
   margin: 0;
-  color: #333;
+  color: var(--text-heading);
 }
 
 .service-form input,
 .service-form select,
 .service-form textarea {
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 14px;
   font-family: inherit;
+  background: var(--input-bg);
+  color: var(--input-text);
 }
 
 .service-form textarea {
@@ -216,7 +229,7 @@
 
 .service-form button {
   padding: 12px;
-  background: #667eea;
+  background: var(--accent-primary);
   color: white;
   border: none;
   border-radius: 5px;
@@ -225,5 +238,5 @@
 }
 
 .service-form button:hover {
-  background: #764ba2;
+  background: var(--accent-secondary);
 }
