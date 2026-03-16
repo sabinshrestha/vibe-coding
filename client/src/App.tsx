@@ -6,6 +6,7 @@ import { ServiceBrowse, FreelancerDashboard } from './pages/Services';
 import { ServiceDetails } from './pages/ServiceDetails';
 import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
+import { ThemeSelection } from './pages/ThemeSelection';
 import { useAuthStore } from './store/authStore';
 import './App.css';
 
@@ -45,6 +46,7 @@ export const App: React.FC = () => {
                   {user?.role === 'freelancer' && (
                     <a href="/freelancer-dashboard">My Services</a>
                   )}
+                  <a href="/themes">Themes</a>
                   <span className="user-info">
                     {user?.name} ({user?.role})
                   </span>
@@ -87,6 +89,14 @@ export const App: React.FC = () => {
             element={
               <ProtectedRoute>
                 <ServiceDetails />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/themes"
+            element={
+              <ProtectedRoute>
+                <ThemeSelection />
               </ProtectedRoute>
             }
           />
