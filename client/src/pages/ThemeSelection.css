@@ -1,0 +1,158 @@
+.theme-selection {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.theme-selection h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.theme-selection .subtitle {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.theme-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid transparent;
+}
+
+.theme-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.theme-card.active {
+  border-color: #667eea;
+}
+
+.theme-preview {
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+.theme-preview-navbar {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 6px;
+}
+
+.theme-preview-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.theme-preview-body {
+  flex: 1;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.theme-preview-sidebar {
+  width: 40px;
+  border-radius: 6px;
+  opacity: 0.3;
+}
+
+.theme-preview-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.theme-preview-line {
+  height: 8px;
+  border-radius: 4px;
+  opacity: 0.2;
+}
+
+.theme-preview-card-row {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.theme-preview-mini-card {
+  flex: 1;
+  border-radius: 6px;
+  opacity: 0.15;
+}
+
+.theme-card-info {
+  padding: 16px;
+}
+
+.theme-card-info h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.theme-card-info p {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.4;
+}
+
+.theme-card-info .theme-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  background: #667eea;
+}
+
+.theme-apply-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+  gap: 12px;
+}
+
+.theme-apply-bar button {
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  border: none;
+}
+
+.theme-apply-bar button:hover {
+  opacity: 0.85;
+}
+
+.theme-apply-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.theme-reset-btn {
+  background: #f0f0f0;
+  color: #333;
+}
