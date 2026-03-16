@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Register } from './pages/Auth';
 import { Login } from './pages/Login';
@@ -8,6 +8,7 @@ import { Dashboard } from './pages/Dashboard';
 import { Landing } from './pages/Landing';
 import { ThemeSelection } from './pages/ThemeSelection';
 import { useAuthStore } from './store/authStore';
+import { useThemeStore } from './store/themeStore';
 import './App.css';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode; requiredRole?: string }> = ({
@@ -29,6 +30,11 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode; requiredRole?: strin
 
 export const App: React.FC = () => {
   const { isAuthenticated, user, logout } = useAuthStore();
+  const { theme, toggleTheme } = useThemeStore();
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   return (
     <Router>
@@ -60,6 +66,13 @@ export const App: React.FC = () => {
                   <a href="/register">Register</a>
                 </>
               )}
+              <button
+                onClick={toggleTheme}
+                className="theme-toggle"
+                aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+              >
+                {theme === 'light' ? '\u{1F319}' : '\u{2600}\u{FE0F}'}
+              </button>
             </div>
           </div>
         </nav>

@@ -2,6 +2,7 @@ import { API_BASE_URL } from "../config/api";
 import React, { useState, useEffect } from 'react';
 import { useAuthStore } from '../store/authStore';
 import axios from 'axios';
+import './Dashboard.css';
 
 interface Order {
   _id: string;
@@ -34,7 +35,6 @@ export const Dashboard: React.FC = () => {
       });
       setOrders(response.data);
 
-      // Calculate stats
       const completed = response.data.filter((o: Order) => o.status === 'completed');
       const active = response.data.filter(
         (o: Order) => o.status === 'pending' || o.status === 'in-progress'
@@ -51,119 +51,57 @@ export const Dashboard: React.FC = () => {
     }
   };
 
+  const getStatusStyle = (status: string) => {
+    if (status === 'completed') return { background: '#d4edda', color: '#155724' };
+    if (status === 'in-progress') return { background: '#fff3cd', color: '#856404' };
+    return { background: '#d1ecf1', color: '#0c5460' };
+  };
+
   return (
-    <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
+    <div className="dashboard-container">
       <h1>{user?.role === 'freelancer' ? 'Freelancer Dashboard' : 'Client Dashboard'}</h1>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '20px',
-          marginTop: '20px',
-        }}
-      >
+      <div className="dashboard-stats">
         {user?.role === 'freelancer' && (
-          <div
-            style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              color: 'white',
-              padding: '20px',
-              borderRadius: '10px',
-            }}
-          >
-            <h3>💰 Total Earnings</h3>
-            <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '10px 0' }}>
-              ${stats.totalEarnings.toFixed(2)}
-            </p>
+          <div className="stat-card stat-card-earnings">
+            <h3>Total Earnings</h3>
+            <p className="stat-value">${stats.totalEarnings.toFixed(2)}</p>
           </div>
         )}
-        <div
-          style={{
-            background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-            color: 'white',
-            padding: '20px',
-            borderRadius: '10px',
-          }}
-        >
-          <h3>📋 Active Orders</h3>
-          <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '10px 0' }}>
-            {stats.activeOrders}
-          </p>
+        <div className="stat-card stat-card-active">
+          <h3>Active Orders</h3>
+          <p className="stat-value">{stats.activeOrders}</p>
         </div>
-        <div
-          style={{
-            background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-            color: 'white',
-            padding: '20px',
-            borderRadius: '10px',
-          }}
-        >
-          <h3>✅ Completed</h3>
-          <p style={{ fontSize: '32px', fontWeight: 'bold', margin: '10px 0' }}>
-            {stats.completedOrders}
-          </p>
+        <div className="stat-card stat-card-completed">
+          <h3>Completed</h3>
+          <p className="stat-value">{stats.completedOrders}</p>
         </div>
       </div>
 
-      <div style={{ marginTop: '40px' }}>
+      <div className="dashboard-orders">
         <h2>Recent Orders</h2>
         {orders.length > 0 ? (
-          <div style={{ marginTop: '20px' }}>
+          <div className="orders-list">
             {orders.map((order) => (
-              <div
-                key={order._id}
-                style={{
-                  background: 'white',
-                  padding: '20px',
-                  borderRadius: '10px',
-                  marginBottom: '15px',
-                  border: '1px solid #ddd',
-                }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+              <div key={order._id} className="order-card">
+                <div className="order-card-content">
                   <div>
-                    <h3 style={{ margin: '0 0 10px 0' }}>{order.title}</h3>
-                    <p style={{ color: '#666', margin: '5px 0' }}>
+                    <h3 className="order-title">{order.title}</h3>
+                    <p className="order-meta">
                       {user?.role === 'freelancer' ? 'Client' : 'Freelancer'}:{' '}
                       {user?.role === 'freelancer'
                         ? order.clientId?.name
                         : order.freelancerId?.name}
                     </p>
-                    <p style={{ color: '#999', fontSize: '14px', margin: '5px 0' }}>
+                    <p className="order-requirements">
                       Requirements: {order.requirements || 'N/A'}
                     </p>
                   </div>
-                  <div style={{ textAlign: 'right' }}>
-                    <p
-                      style={{
-                        fontSize: '24px',
-                        fontWeight: 'bold',
-                        color: '#667eea',
-                        margin: '0 0 10px 0',
-                      }}
-                    >
-                      ${order.price}
-                    </p>
+                  <div className="order-price-status">
+                    <p className="order-price">${order.price}</p>
                     <span
-                      style={{
-                        padding: '5px 15px',
-                        borderRadius: '20px',
-                        fontSize: '12px',
-                        fontWeight: 'bold',
-                        background:
-                          order.status === 'completed'
-                            ? '#d4edda'
-                            : order.status === 'in-progress'
-                            ? '#fff3cd'
-                            : '#d1ecf1',
-                        color:
-                          order.status === 'completed'
-                            ? '#155724'
-                            : order.status === 'in-progress'
-                            ? '#856404'
-                            : '#0c5460',
-                      }}
+                      className="order-status-badge"
+                      style={getStatusStyle(order.status)}
                     >
                       {order.status.toUpperCase()}
                     </span>
@@ -173,7 +111,7 @@ export const Dashboard: React.FC = () => {
             ))}
           </div>
         ) : (
-          <p style={{ color: '#666', marginTop: '20px' }}>No orders yet</p>
+          <p className="no-orders">No orders yet</p>
         )}
       </div>
     </div>

@@ -3,21 +3,22 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--accent-gradient);
 }
 
 .auth-box {
-  background: white;
+  background: var(--bg-secondary);
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--card-shadow);
   width: 100%;
   max-width: 400px;
+  transition: background-color 0.3s;
 }
 
 .auth-box h2 {
   text-align: center;
-  color: #333;
+  color: var(--text-heading);
   margin-bottom: 30px;
 }
 
@@ -30,21 +31,23 @@
 .auth-box input,
 .auth-box select {
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 14px;
   transition: border-color 0.3s;
+  background: var(--input-bg);
+  color: var(--input-text);
 }
 
 .auth-box input:focus,
 .auth-box select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--accent-primary);
 }
 
 .auth-box button {
   padding: 12px;
-  background: #667eea;
+  background: var(--accent-primary);
   color: white;
   border: none;
   border-radius: 5px;
@@ -55,7 +58,7 @@
 }
 
 .auth-box button:hover:not(:disabled) {
-  background: #764ba2;
+  background: var(--accent-secondary);
 }
 
 .auth-box button:disabled {
@@ -64,7 +67,7 @@
 }
 
 .error {
-  color: #e74c3c;
+  color: var(--error-alt);
   font-size: 14px;
   text-align: center;
 }
@@ -72,11 +75,11 @@
 .auth-box p {
   text-align: center;
   margin-top: 20px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .auth-box a {
-  color: #667eea;
+  color: var(--accent-primary);
   text-decoration: none;
   font-weight: bold;
 }
